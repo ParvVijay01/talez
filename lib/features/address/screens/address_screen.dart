@@ -19,7 +19,7 @@ import 'package:provider/provider.dart';
 
 
 class AddressScreen extends StatefulWidget {
-  const AddressScreen({Key? key}) : super(key: key);
+  const AddressScreen({super.key});
 
   @override
   State<AddressScreen> createState() => _AddressScreenState();

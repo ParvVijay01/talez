@@ -13,7 +13,7 @@ import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 class UpdateScreen extends StatelessWidget {
-  const UpdateScreen({Key? key}) : super(key: key);
+  const UpdateScreen({super.key});
 
 
   @override

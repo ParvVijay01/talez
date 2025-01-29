@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart';
 import 'package:hexacom_user/common/models/api_response_model.dart';
 import 'package:hexacom_user/common/models/config_model.dart';
 import 'package:hexacom_user/common/models/delivery_info_model.dart';

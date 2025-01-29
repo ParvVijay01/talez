@@ -87,7 +87,7 @@ class AuthRepo {
           FirebaseMessaging.instance.unsubscribeFromTopic(AppConstants.topic);
         }
       }else{
-        print('--------(I am WEB AND)------${AppConstants.topic} and ${fcmToken}');
+        print('--------(I am WEB AND)------${AppConstants.topic} and $fcmToken');
        await subscribeTokenToTopic(deviceToken, fcmToken ?? AppConstants.topic);
       }
 

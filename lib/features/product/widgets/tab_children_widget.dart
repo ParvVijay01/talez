@@ -10,7 +10,7 @@ import 'package:flutter_widget_from_html_core/flutter_widget_from_html_core.dart
 import 'package:provider/provider.dart';
 
 class TabChildrenWidget extends StatefulWidget {
-  const TabChildrenWidget({Key? key}) : super(key: key);
+  const TabChildrenWidget({super.key});
 
   @override
   State<TabChildrenWidget> createState() => _TabChildrenWidgetState();

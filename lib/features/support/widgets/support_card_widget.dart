@@ -8,8 +8,8 @@ class SupportCardWidget extends StatelessWidget {
   final String icon;
   final Function onTap;
   const SupportCardWidget({
-    Key? key, required this.title, required this.icon, required this.onTap,
-  }) : super(key: key);
+    super.key, required this.title, required this.icon, required this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {

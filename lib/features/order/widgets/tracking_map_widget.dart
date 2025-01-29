@@ -13,7 +13,7 @@ import 'package:url_launcher/url_launcher_string.dart';
 class TrackingMapWidget extends StatefulWidget {
   final String? orderID;
   final DeliveryAddress? addressModel;
-  const TrackingMapWidget( {Key? key, required this.orderID, required this.addressModel}) : super(key: key);
+  const TrackingMapWidget( {super.key, required this.orderID, required this.addressModel});
 
   @override
   State<TrackingMapWidget> createState() => _TrackingMapWidgetState();

@@ -15,7 +15,7 @@ import 'package:provider/provider.dart';
 class LanguageSelectButtonWidget extends StatelessWidget {
   final bool fromMenu;
 
-  const LanguageSelectButtonWidget({Key? key, required this.fromMenu}) : super(key: key);
+  const LanguageSelectButtonWidget({super.key, required this.fromMenu});
 
   @override
   Widget build(BuildContext context) {

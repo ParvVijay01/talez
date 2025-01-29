@@ -31,7 +31,7 @@ import 'package:provider/provider.dart';
 class ProductDetailsScreen extends StatefulWidget {
   final Product? product;
   final CartModel? cart;
-  const ProductDetailsScreen({Key? key, required this.product, this.cart}) : super(key: key);
+  const ProductDetailsScreen({super.key, required this.product, this.cart});
 
   @override
   State<ProductDetailsScreen> createState() => _ProductDetailsScreenState();

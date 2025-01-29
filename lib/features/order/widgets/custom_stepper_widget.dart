@@ -20,12 +20,12 @@ class CustomStepperWidget extends StatelessWidget {
   final Widget? subTitleWidget;
   final Color? color;
 
-  const CustomStepperWidget({Key? key,
+  const CustomStepperWidget({super.key,
     required this.title, required this.isActive,
     this.child, this.haveTopBar = true, this.height = 30,
     this.statusImage = Images.order, this.subTitle,
     required this.isComplete, this.trailing, this.subTitleWidget, this.color,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -134,12 +134,12 @@ class WebStepper extends StatelessWidget {
   final Color? color;
 
 
-  const WebStepper({Key? key,
+  const WebStepper({super.key,
     required this.title, required this.isActive,
     this.child, this.haveTopBar = true, this.width = 50,
     this.statusImage = Images.order, this.subTitle,
     required this.isComplete, this.trailing, this.subTitleWidget, this.color,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

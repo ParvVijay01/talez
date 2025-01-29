@@ -16,7 +16,7 @@ class MainSliderWidget extends StatefulWidget {
   final List<BannerModel>? bannerList;
   final BannerType bannerType;
   final bool isMainOnly;
-  const MainSliderWidget({Key? key, required this.bannerList, required this.bannerType, this.isMainOnly = false}) : super(key: key);
+  const MainSliderWidget({super.key, required this.bannerList, required this.bannerType, this.isMainOnly = false});
 
   @override
   State<MainSliderWidget> createState() => _MainSliderWidgetState();

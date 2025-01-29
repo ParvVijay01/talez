@@ -11,7 +11,7 @@ import 'package:provider/provider.dart';
 
 class ProductImageScreen extends StatefulWidget {
   final List<String>? imageList;
-  const ProductImageScreen({Key? key, required this.imageList}) : super(key: key);
+  const ProductImageScreen({super.key, required this.imageList});
 
   @override
   State<ProductImageScreen> createState() => _ProductImageScreenState();

@@ -18,7 +18,7 @@ import 'package:provider/provider.dart';
 class DeliveryManReviewWidget extends StatefulWidget {
   final DeliveryMan? deliveryMan;
   final String orderID;
-  const DeliveryManReviewWidget({Key? key, required this.deliveryMan, required this.orderID}) : super(key: key);
+  const DeliveryManReviewWidget({super.key, required this.deliveryMan, required this.orderID});
 
   @override
   State<DeliveryManReviewWidget> createState() => _DeliveryManReviewWidgetState();

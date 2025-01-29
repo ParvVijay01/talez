@@ -17,7 +17,7 @@ import 'package:provider/provider.dart';
 
 class PaymentMethodBottomSheetWidget extends StatefulWidget {
 
-  const PaymentMethodBottomSheetWidget({Key? key}) : super(key: key);
+  const PaymentMethodBottomSheetWidget({super.key});
 
   @override
   State<PaymentMethodBottomSheetWidget> createState() => _PaymentMethodBottomSheetWidgetState();

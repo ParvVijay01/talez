@@ -133,7 +133,6 @@ class _OrderSearchScreenState extends State<OrderSearchScreen> {
 
 class _TrackRefreshButtonView extends StatelessWidget {
   const _TrackRefreshButtonView({
-    super.key,
     required this.orderIdTextController,
     required this.phoneNumberTextController,
   });
@@ -162,7 +161,6 @@ class _TrackRefreshButtonView extends StatelessWidget {
 
 class _InputView extends StatelessWidget {
   const _InputView({
-    super.key,
     required this.orderIdTextController,
     required this.orderIdFocusNode,
     required this.phoneFocusNode,
@@ -285,7 +283,6 @@ class TrackOrderButtonView extends StatelessWidget {
 
 class _OrderIdTextField extends StatelessWidget {
   const _OrderIdTextField({
-    super.key,
     required this.orderIdTextController,
     required this.orderIdFocusNode,
     required this.phoneFocusNode,

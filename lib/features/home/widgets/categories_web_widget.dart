@@ -14,7 +14,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class CategoriesWebWidget extends StatefulWidget {
-  const CategoriesWebWidget({Key? key}) : super(key: key);
+  const CategoriesWebWidget({super.key});
 
   @override
   State<CategoriesWebWidget> createState() => _CategoriesWebWidgetState();

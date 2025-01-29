@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 
 class LocationPermissionDialogWidget extends StatelessWidget {
-  const LocationPermissionDialogWidget({Key? key}) : super(key: key);
+  const LocationPermissionDialogWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

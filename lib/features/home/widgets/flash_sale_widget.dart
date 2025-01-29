@@ -13,7 +13,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class FlashSaleWidget extends StatelessWidget {
-  const FlashSaleWidget({Key? key}) : super(key: key);
+  const FlashSaleWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

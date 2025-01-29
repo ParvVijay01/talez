@@ -19,7 +19,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class ReOrderDialogWidget extends StatelessWidget {
-  const ReOrderDialogWidget({Key? key}) : super(key: key);
+  const ReOrderDialogWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -92,7 +92,7 @@ class ReOrderProductItem extends StatelessWidget {
   final Product? orderedProduct;
   final CartModel cart;
   final int index;
-  const ReOrderProductItem({Key? key, required this.cart, required this.index, required this.orderedProduct}) : super(key: key);
+  const ReOrderProductItem({super.key, required this.cart, required this.index, required this.orderedProduct});
 
   @override
   Widget build(BuildContext context) {
@@ -210,8 +210,8 @@ class ReOrderTagView extends StatelessWidget {
   final Color? color;
   final String message;
   const ReOrderTagView({
-    Key? key, this.borderRadius, this.color, required this.message,
-  }) : super(key: key);
+    super.key, this.borderRadius, this.color, required this.message,
+  });
 
   @override
   Widget build(BuildContext context) {

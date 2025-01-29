@@ -11,9 +11,9 @@ import 'package:provider/provider.dart';
 class TabBarWidget extends StatelessWidget {
   final int? productId;
   const TabBarWidget({
-    Key? key,
+    super.key,
     required this.child, required this.productId,
-  }) : super(key: key);
+  });
 
   final Widget child;
 

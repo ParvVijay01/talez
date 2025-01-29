@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:shimmer_animation/shimmer_animation.dart';
 
 class MainSliderShimmerWidget extends StatelessWidget {
-  const MainSliderShimmerWidget({Key? key}) : super(key: key);
+  const MainSliderShimmerWidget({super.key});
 
 
   @override

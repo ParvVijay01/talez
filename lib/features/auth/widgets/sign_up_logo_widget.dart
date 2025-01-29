@@ -7,8 +7,8 @@ import 'package:flutter/material.dart';
 
 class SignUpLogoWidget extends StatelessWidget {
   const SignUpLogoWidget({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

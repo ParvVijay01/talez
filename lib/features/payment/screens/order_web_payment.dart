@@ -13,7 +13,7 @@ import 'package:provider/provider.dart';
 
 class OrderWebPayment extends StatefulWidget {
   final String? token;
-  const OrderWebPayment({Key? key, this.token}) : super(key: key);
+  const OrderWebPayment({super.key, this.token});
 
   @override
   State<OrderWebPayment> createState() => _OrderWebPaymentState();

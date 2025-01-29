@@ -12,7 +12,7 @@ class SelectDeliveryTypeWidget extends StatelessWidget {
   final String value;
   final String? title;
   final bool kmWiseFee;
-  const SelectDeliveryTypeWidget({Key? key, required this.value, required this.title, required this.kmWiseFee}) : super(key: key);
+  const SelectDeliveryTypeWidget({super.key, required this.value, required this.title, required this.kmWiseFee});
 
   @override
   Widget build(BuildContext context) {

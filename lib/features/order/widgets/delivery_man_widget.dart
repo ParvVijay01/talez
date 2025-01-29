@@ -12,7 +12,7 @@ import 'package:url_launcher/url_launcher_string.dart';
 
 class DeliveryManWidget extends StatelessWidget {
   final DeliveryMan? deliveryMan;
-  const DeliveryManWidget({Key? key, required this.deliveryMan}) : super(key: key);
+  const DeliveryManWidget({super.key, required this.deliveryMan});
 
   @override
   Widget build(BuildContext context) {

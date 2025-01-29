@@ -8,7 +8,7 @@ class SortButtonWidget extends StatelessWidget {
   final bool isSelected;
   final String name;
   final Function onTap;
-  const SortButtonWidget({Key? key, required this.isSelected, required this.name, required this.onTap }) : super(key: key);
+  const SortButtonWidget({super.key, required this.isSelected, required this.name, required this.onTap });
 
   @override
   Widget build(BuildContext context) {

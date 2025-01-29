@@ -7,7 +7,7 @@ import 'package:hexacom_user/utill/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 class RatingLineWidget extends StatelessWidget {
-  const RatingLineWidget({Key? key}) : super(key: key);
+  const RatingLineWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

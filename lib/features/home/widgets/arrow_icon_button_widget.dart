@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class ArrowIconButtonWidget extends StatelessWidget {
   final bool isRight;
   final void Function()? onTap;
-  const ArrowIconButtonWidget({Key? key, this.isRight = true, this.onTap}) : super(key: key);
+  const ArrowIconButtonWidget({super.key, this.isRight = true, this.onTap});
 
   @override
   Widget build(BuildContext context) {

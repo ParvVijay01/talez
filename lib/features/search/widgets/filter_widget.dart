@@ -15,7 +15,7 @@ import 'package:provider/provider.dart';
 
 class FilterWidget extends StatefulWidget {
   final String? query;
-  const FilterWidget({Key? key, required this.query}) : super(key: key);
+  const FilterWidget({super.key, required this.query});
 
   @override
   State<FilterWidget> createState() => _FilterWidgetState();

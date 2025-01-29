@@ -12,7 +12,7 @@ import 'package:provider/provider.dart';
 class OnBoardingScreen extends StatelessWidget {
   final PageController _pageController = PageController();
 
-  OnBoardingScreen({Key? key}) : super(key: key);
+  OnBoardingScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -11,7 +11,7 @@ import '../../../helper/responsive_helper.dart';
 
 class ProductTitleWidget extends StatelessWidget {
   final Product? productModel;
-  const ProductTitleWidget({Key? key, required this.productModel}) : super(key: key);
+  const ProductTitleWidget({super.key, required this.productModel});
 
   @override
   Widget build(BuildContext context) {

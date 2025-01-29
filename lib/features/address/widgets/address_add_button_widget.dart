@@ -5,7 +5,7 @@ import 'package:hexacom_user/common/widgets/on_hover.dart';
 import 'package:flutter/material.dart';
 class AddressAddButtonWidget extends StatelessWidget {
   final Function onTap;
-  const AddressAddButtonWidget({Key? key, required this.onTap}) : super(key: key);
+  const AddressAddButtonWidget({super.key, required this.onTap});
 
   @override
   Widget build(BuildContext context) {

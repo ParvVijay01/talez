@@ -11,7 +11,7 @@ import 'package:provider/provider.dart';
 
 class ProductImageWidget extends StatelessWidget {
   final Product? productModel;
-  const ProductImageWidget({Key? key, required this.productModel}) : super(key: key);
+  const ProductImageWidget({super.key, required this.productModel});
 
   @override
   Widget build(BuildContext context) {

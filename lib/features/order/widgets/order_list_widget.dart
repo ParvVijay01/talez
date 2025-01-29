@@ -14,7 +14,7 @@ import 'package:provider/provider.dart';
 
 class OrderListWidget extends StatelessWidget {
   final bool isRunning;
-  const OrderListWidget({Key? key, required this.isRunning}) : super(key: key);
+  const OrderListWidget({super.key, required this.isRunning});
 
   @override
   Widget build(BuildContext context) {

@@ -23,7 +23,7 @@ import 'package:provider/provider.dart';
 class SearchResultScreen extends StatefulWidget {
   final String searchString;
   final SearchShortBy? shortBy;
-  const SearchResultScreen({Key? key, required this.searchString, this.shortBy}) : super(key: key);
+  const SearchResultScreen({super.key, required this.searchString, this.shortBy});
 
   @override
   State<SearchResultScreen> createState() => _SearchResultScreenState();

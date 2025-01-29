@@ -21,7 +21,7 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:provider/provider.dart';
 
 class FlashSaleDetailsScreen extends StatefulWidget {
-  const FlashSaleDetailsScreen({Key? key}) : super(key: key);
+  const FlashSaleDetailsScreen({super.key});
 
   @override
   State<FlashSaleDetailsScreen> createState() => _FlashSaleDetailsScreenState();

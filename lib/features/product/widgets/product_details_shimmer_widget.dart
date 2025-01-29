@@ -5,7 +5,7 @@ import 'package:shimmer_animation/shimmer_animation.dart';
 class ProductDetailsShimmerWidget extends StatelessWidget {
   final bool isEnabled;
   final bool isWeb;
-  const ProductDetailsShimmerWidget({Key? key, required this.isEnabled, this.isWeb = false}) : super(key: key);
+  const ProductDetailsShimmerWidget({super.key, required this.isEnabled, this.isWeb = false});
 
   @override
   Widget build(BuildContext context) {

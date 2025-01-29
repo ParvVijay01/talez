@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class VariationViewWidget extends StatelessWidget {
-  const VariationViewWidget({Key? key}) : super(key: key);
+  const VariationViewWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

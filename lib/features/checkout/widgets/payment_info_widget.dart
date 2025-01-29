@@ -14,7 +14,7 @@ import 'package:provider/provider.dart';
 
 import 'payment_method_bottom_sheet_widget.dart';
 class PaymentInfoWidget extends StatelessWidget {
-  const PaymentInfoWidget({Key? key}) : super(key: key);
+  const PaymentInfoWidget({super.key});
 
 
   void openDialog(BuildContext context){

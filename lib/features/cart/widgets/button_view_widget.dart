@@ -17,11 +17,11 @@ class ButtonViewWidget extends StatelessWidget {
   final double discount;
 
   const ButtonViewWidget({
-    Key? key, required this.itemPrice,
+    super.key, required this.itemPrice,
     required this.total,
     required this.deliveryCharge,
     required this.discount,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

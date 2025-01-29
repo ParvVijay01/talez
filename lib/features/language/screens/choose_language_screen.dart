@@ -12,7 +12,7 @@ import 'package:provider/provider.dart';
 
 class ChooseLanguageScreen extends StatefulWidget {
   final bool fromMenu;
-  const ChooseLanguageScreen({Key? key, this.fromMenu = false}) : super(key: key);
+  const ChooseLanguageScreen({super.key, this.fromMenu = false});
 
   @override
   State<ChooseLanguageScreen> createState() => _ChooseLanguageScreenState();

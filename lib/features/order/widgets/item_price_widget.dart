@@ -16,7 +16,7 @@ class ItemPriceWidget extends StatelessWidget {
   final OrderProvider order;
   final double? deliveryCharge;
   final double total;
-  const ItemPriceWidget({Key? key, required this.itemsPrice, required this.tax, required this.subTotal, required this.discount, required this.order, required this.deliveryCharge, required this.total, this.extraDiscount}) : super(key: key);
+  const ItemPriceWidget({super.key, required this.itemsPrice, required this.tax, required this.subTotal, required this.discount, required this.order, required this.deliveryCharge, required this.total, this.extraDiscount});
 
   @override
   Widget build(BuildContext context) {

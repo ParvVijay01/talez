@@ -9,7 +9,7 @@ import 'package:provider/provider.dart';
 
 class DetailsAppBarWidget extends StatefulWidget implements PreferredSizeWidget {
   @override
-  const DetailsAppBarWidget({Key? key}) : super(key: key);
+  const DetailsAppBarWidget({super.key});
 
   @override
   DetailsAppBarWidgetState createState() => DetailsAppBarWidgetState();

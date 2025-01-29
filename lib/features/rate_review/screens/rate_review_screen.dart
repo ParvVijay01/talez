@@ -15,7 +15,7 @@ class RateReviewScreen extends StatefulWidget {
   final List<OrderDetailsModel>? orderDetailsList;
   final DeliveryMan? deliveryMan;
   final int? orderId;
-  const RateReviewScreen({Key? key, required this.orderDetailsList, required this.deliveryMan, this.orderId}) : super(key: key);
+  const RateReviewScreen({super.key, required this.orderDetailsList, required this.deliveryMan, this.orderId});
 
   @override
   State<RateReviewScreen> createState() => _RateReviewScreenState();

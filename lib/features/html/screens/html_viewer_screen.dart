@@ -14,7 +14,7 @@ import 'package:url_launcher/url_launcher_string.dart';
 
 class HtmlViewerScreen extends StatelessWidget {
   final HtmlType htmlType;
-  const HtmlViewerScreen({Key? key, required this.htmlType}) : super(key: key);
+  const HtmlViewerScreen({super.key, required this.htmlType});
 
   @override
   Widget build(BuildContext context) {

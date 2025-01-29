@@ -10,7 +10,7 @@ import 'package:provider/provider.dart';
 class DeleteDialogWidget extends StatelessWidget {
   final AddressModel addressModel;
   final int index;
-  const DeleteDialogWidget({Key? key, required this.addressModel, required this.index}) : super(key: key);
+  const DeleteDialogWidget({super.key, required this.addressModel, required this.index});
   @override
   Widget build(BuildContext context) {
     return Dialog(

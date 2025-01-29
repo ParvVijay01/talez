@@ -5,8 +5,8 @@ import 'package:provider/provider.dart';
 
 class CartProductListWidget extends StatelessWidget {
   const CartProductListWidget({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

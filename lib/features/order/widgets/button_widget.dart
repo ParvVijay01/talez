@@ -15,7 +15,7 @@ import 'package:provider/provider.dart';
 
 class ButtonWidget extends StatelessWidget {
   final OrderProvider order;
-  const ButtonWidget({Key? key, required this.order}) : super(key: key);
+  const ButtonWidget({super.key, required this.order});
 
   @override
   Widget build(BuildContext context) {

@@ -25,7 +25,7 @@ class CategoryScreen extends StatefulWidget {
   final int? categoryId;
   final int? subCategoryId;
 
-  const CategoryScreen({Key? key, required this.categoryId, this.subCategoryId}) : super(key: key);
+  const CategoryScreen({super.key, required this.categoryId, this.subCategoryId});
 
 
   @override

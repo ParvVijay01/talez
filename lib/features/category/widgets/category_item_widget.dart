@@ -8,7 +8,7 @@ class CategoryItemWidget extends StatelessWidget {
   final String? icon;
   final bool isSelected;
 
-  const CategoryItemWidget({Key? key, required this.title, required this.icon, required this.isSelected}) : super(key: key);
+  const CategoryItemWidget({super.key, required this.title, required this.icon, required this.isSelected});
 
   @override
   Widget build(BuildContext context) {

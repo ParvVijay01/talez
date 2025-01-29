@@ -11,9 +11,9 @@ class PaymentButtonWidget extends StatelessWidget {
   final Function onTap;
 
   const PaymentButtonWidget({
-    Key? key, required this.isSelected, required this.icon,
+    super.key, required this.isSelected, required this.icon,
     required this.title, required this.onTap,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -15,7 +15,7 @@ import 'package:provider/provider.dart';
 
 class OptionsWidget extends StatelessWidget {
   final Function? onTap;
-  const OptionsWidget({Key? key, required this.onTap}) : super(key: key);
+  const OptionsWidget({super.key, required this.onTap});
 
   @override
   Widget build(BuildContext context) {

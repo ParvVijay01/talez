@@ -13,7 +13,7 @@ import 'package:provider/provider.dart';
 import 'package:shimmer_animation/shimmer_animation.dart';
 
 class BannerWidget extends StatefulWidget {
-  const BannerWidget({Key? key}) : super(key: key);
+  const BannerWidget({super.key});
 
   @override
   State<BannerWidget> createState() => _BannerWidgetState();
@@ -125,7 +125,7 @@ class _BannerWidgetState extends State<BannerWidget> {
         Consumer<BannerProvider>(
             builder: (context, banner, child) {
             return Positioned(
-              right: 35, bottom: 20, top: 20,
+              right: 30, top: 40,
               child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
 
                 Text('${_currentSliderValue.toInt() + (_currentSliderValue.toInt() >= _listLength.toInt() ? 0 : 1)}/${_listLength.toInt()}', style: rubikRegular.copyWith(color: Theme.of(context).cardColor)),
@@ -159,7 +159,7 @@ class _BannerWidgetState extends State<BannerWidget> {
 }
 
 class BannerShimmer extends StatelessWidget {
-  const BannerShimmer({Key? key}) : super(key: key);
+  const BannerShimmer({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class FlashSaleTimerWidget extends StatelessWidget {
-  const FlashSaleTimerWidget({Key? key}) : super(key: key);
+  const FlashSaleTimerWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +53,7 @@ class FlashSaleTimerWidget extends StatelessWidget {
 class _TimerWidget extends StatelessWidget {
   final int timeCount;
   final String timeUnit;
-  const _TimerWidget({Key? key, required this.timeUnit, required this.timeCount}) : super(key: key);
+  const _TimerWidget({super.key, required this.timeUnit, required this.timeCount});
 
   @override
   Widget build(BuildContext context) {

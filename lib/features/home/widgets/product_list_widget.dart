@@ -14,7 +14,7 @@ import 'package:provider/provider.dart';
 class ProductListWidget extends StatelessWidget {
   final ProductFilterType? filterType;
   final ScrollController? scrollController;
-  const ProductListWidget({Key? key, this.scrollController, this.filterType}) : super(key: key);
+  const ProductListWidget({super.key, this.scrollController, this.filterType});
 
   @override
   Widget build(BuildContext context) {

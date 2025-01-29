@@ -13,7 +13,7 @@ import 'package:hexacom_user/common/widgets/main_app_bar_widget.dart';
 import 'package:provider/provider.dart';
 
 class WelcomeScreen extends StatelessWidget {
-  const WelcomeScreen({Key? key}) : super(key: key);
+  const WelcomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

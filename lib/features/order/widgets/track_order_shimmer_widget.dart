@@ -3,7 +3,7 @@ import 'package:hexacom_user/utill/dimensions.dart';
 import 'package:shimmer_animation/shimmer_animation.dart';
 
 class TrackOrderShimmerWidget extends StatelessWidget {
-  const TrackOrderShimmerWidget({Key? key}) : super(key: key);
+  const TrackOrderShimmerWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -10,7 +10,7 @@ import 'package:hexacom_user/features/order/widgets/order_list_widget.dart';
 import 'package:provider/provider.dart';
 
 class OrderScreen extends StatefulWidget {
-  const OrderScreen({Key? key}) : super(key: key);
+  const OrderScreen({super.key});
 
   @override
   State<OrderScreen> createState() => _OrderScreenState();

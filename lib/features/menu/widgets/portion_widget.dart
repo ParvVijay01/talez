@@ -10,7 +10,7 @@ class PortionWidget extends StatelessWidget {
   final bool hideDivider;
   final Function? route;
   final String? suffix;
-  const PortionWidget({Key? key, required this.imageIcon, required this.title,  this.route, this.hideDivider = false, this.suffix, this.icon}) : super(key: key);
+  const PortionWidget({super.key, required this.imageIcon, required this.title,  this.route, this.hideDivider = false, this.suffix, this.icon});
 
   @override
   Widget build(BuildContext context) {

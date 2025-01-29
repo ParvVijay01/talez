@@ -15,7 +15,7 @@ class QuantityWidget extends StatelessWidget {
   final CartModel? cartModel;
   final bool isExistInCart;
   final int stock;
-  const QuantityWidget({Key? key, required this.cartModel, required this.isExistInCart, required this.stock}) : super(key: key);
+  const QuantityWidget({super.key, required this.cartModel, required this.isExistInCart, required this.stock});
 
 
   @override
@@ -70,13 +70,13 @@ class _QuantityButtonWidget extends StatelessWidget {
   final int? stock;
   final bool isExistInCart;
   final CartModel? cart;
-  const _QuantityButtonWidget({Key? key,
+  const _QuantityButtonWidget({super.key,
     required this.isIncrement,
     required this.quantity,
     required this.stock,
     required this.isExistInCart,
     required this.cart,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -19,7 +19,7 @@ import 'package:provider/provider.dart';
 
 class ProductReviewWidget extends StatelessWidget {
   final List<OrderDetailsModel>? orderDetailsList;
-  const ProductReviewWidget({Key? key, required this.orderDetailsList}) : super(key: key);
+  const ProductReviewWidget({super.key, required this.orderDetailsList});
 
   @override
   Widget build(BuildContext context) {

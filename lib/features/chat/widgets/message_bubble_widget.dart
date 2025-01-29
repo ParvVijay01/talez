@@ -13,7 +13,7 @@ import 'package:provider/provider.dart';
 class MessageBubbleWidget extends StatelessWidget {
   final Messages? messages;
   final bool? isAdmin;
-  const MessageBubbleWidget({Key? key, this.messages, this.isAdmin}) : super(key: key);
+  const MessageBubbleWidget({super.key, this.messages, this.isAdmin});
   @override
   Widget build(BuildContext context) {
 

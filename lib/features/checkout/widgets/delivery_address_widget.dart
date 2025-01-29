@@ -137,9 +137,9 @@ class _ContactItemWidget extends StatelessWidget {
   final IconData icon;
   final String? title;
   const _ContactItemWidget({
-    Key? key,
+    super.key,
     required this.icon, this.title,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -154,7 +154,7 @@ class _ContactItemWidget extends StatelessWidget {
 
 
 class DeliverySectionShimmer extends StatelessWidget {
-  const DeliverySectionShimmer({Key? key}) : super(key: key);
+  const DeliverySectionShimmer({super.key});
 
   @override
   Widget build(BuildContext context) {

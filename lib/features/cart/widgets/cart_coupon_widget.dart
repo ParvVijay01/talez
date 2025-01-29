@@ -15,8 +15,8 @@ class CartCouponWidget extends StatelessWidget {
   final TextEditingController couponTextController;
   final double totalAmount;
   const CartCouponWidget({
-    Key? key, required this.couponTextController, required this.totalAmount,
-  }) : super(key: key);
+    super.key, required this.couponTextController, required this.totalAmount,
+  });
 
   @override
   Widget build(BuildContext context) {

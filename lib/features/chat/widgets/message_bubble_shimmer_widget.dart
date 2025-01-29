@@ -5,7 +5,7 @@ import 'package:shimmer_animation/shimmer_animation.dart';
 
 class MessageBubbleShimmerWidget extends StatelessWidget {
 final bool isMe;
-const MessageBubbleShimmerWidget({Key? key, required this.isMe}) : super(key: key);
+const MessageBubbleShimmerWidget({super.key, required this.isMe});
 
 @override
 Widget build(BuildContext context) {

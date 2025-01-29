@@ -13,7 +13,7 @@ import 'package:provider/provider.dart';
 
 class FeatureCategoryWidget extends StatefulWidget {
   final FeaturedCategory? featuredCategory;
-  const FeatureCategoryWidget({Key? key, required this.featuredCategory}) : super(key: key);
+  const FeatureCategoryWidget({super.key, required this.featuredCategory});
 
   @override
   State<FeatureCategoryWidget> createState() => _FeatureCategoryWidgetState();

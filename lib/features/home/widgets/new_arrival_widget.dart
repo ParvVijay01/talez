@@ -13,7 +13,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class NewArrivalWidget extends StatefulWidget {
-  const NewArrivalWidget({Key? key}) : super(key: key);
+  const NewArrivalWidget({super.key});
 
   @override
   State<NewArrivalWidget> createState() => _NewArrivalWidgetState();

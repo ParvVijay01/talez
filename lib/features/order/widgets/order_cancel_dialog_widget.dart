@@ -9,7 +9,7 @@ import 'package:provider/provider.dart';
 class OrderCancelDialogWidget extends StatelessWidget {
   final String orderID;
   final Function callback;
-  const OrderCancelDialogWidget({Key? key, required this.orderID, required this.callback}) : super(key: key);
+  const OrderCancelDialogWidget({super.key, required this.orderID, required this.callback});
 
   @override
   Widget build(BuildContext context) {

@@ -24,7 +24,7 @@ class CartBottomSheetWidget extends StatelessWidget {
   final Function? callback;
   final CartModel? cart;
   final int? cartIndex;
-  const CartBottomSheetWidget({Key? key, required this.product, this.fromOfferProduct = false, this.callback, this.cart, this.cartIndex}) : super(key: key);
+  const CartBottomSheetWidget({super.key, required this.product, this.fromOfferProduct = false, this.callback, this.cart, this.cartIndex});
 
   @override
   Widget build(BuildContext context) {

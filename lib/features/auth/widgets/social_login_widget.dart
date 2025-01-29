@@ -344,8 +344,8 @@ class SocialButtonView extends StatelessWidget {
   final Color? color;
   final EdgeInsetsGeometry? padding;
   const SocialButtonView({
-    Key? key, required this.image, this.text, this.color, this.padding
-  }) : super(key: key);
+    super.key, required this.image, this.text, this.color, this.padding
+  });
 
   @override
   Widget build(BuildContext context) {

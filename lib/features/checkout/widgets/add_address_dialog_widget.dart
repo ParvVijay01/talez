@@ -121,8 +121,8 @@ class AddAddressDialogWidget extends StatelessWidget {
 class CurrentLocationButton extends StatelessWidget {
   final bool isBorder;
   const CurrentLocationButton({
-    Key? key, required this.isBorder,
-  }) : super(key: key);
+    super.key, required this.isBorder,
+  });
 
   @override
   Widget build(BuildContext context) {

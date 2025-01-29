@@ -13,8 +13,8 @@ import 'package:provider/provider.dart';
 
 class ProductReviewListWidget extends StatelessWidget {
   const ProductReviewListWidget({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
 
   @override

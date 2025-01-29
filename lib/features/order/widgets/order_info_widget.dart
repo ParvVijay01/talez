@@ -18,7 +18,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class OrderInfoWidget extends StatelessWidget {
-  const OrderInfoWidget({Key? key}) : super(key: key);
+  const OrderInfoWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -421,7 +421,7 @@ class OrderInfoWidget extends StatelessWidget {
 
 class VariationView extends StatelessWidget {
   final String? variationName;
-  const VariationView({Key? key, this.variationName}) : super(key: key);
+  const VariationView({super.key, this.variationName});
 
   @override
   Widget build(BuildContext context) {

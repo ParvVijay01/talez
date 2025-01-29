@@ -33,7 +33,7 @@ class OrderProvider extends ChangeNotifier {
   int? _reOrderIndex;
   List<CartModel> _reOrderCartList = [];
   ReOrderDetailsModel? _reOrderDetailsModel;
-  final String? _orderType = 'delivery';
+  final String _orderType = 'delivery';
   int? _selectedAreaID;
   Timer? _timer;
   double? _deliveryCharge;

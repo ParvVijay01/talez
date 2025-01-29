@@ -10,7 +10,7 @@ import 'package:provider/provider.dart';
 
 class ImageSelectionWidget extends StatelessWidget {
   final Product? productModel;
-  const ImageSelectionWidget({Key? key, required this.productModel}) : super(key: key);
+  const ImageSelectionWidget({super.key, required this.productModel});
 
   @override
   Widget build(BuildContext context) {

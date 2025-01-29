@@ -12,8 +12,8 @@ class PaymentMethodWidget extends StatelessWidget {
 
   final List<PaymentMethod> paymentList;
   const PaymentMethodWidget({
-    Key? key, required this.onTap, required this.paymentList,
-  }) : super(key: key);
+    super.key, required this.onTap, required this.paymentList,
+  });
 
   @override
   Widget build(BuildContext context) {

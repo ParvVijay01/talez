@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 
 class MenuItemWebWidget extends StatelessWidget {
   final MenuModel menu;
-  const MenuItemWebWidget({Key? key, required this.menu}) : super(key: key);
+  const MenuItemWebWidget({super.key, required this.menu});
 
 
   @override

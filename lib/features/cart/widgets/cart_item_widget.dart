@@ -4,7 +4,7 @@ import 'package:hexacom_user/common/widgets/custom_directionality_widget.dart';
 import 'package:flutter/material.dart';
 
 class CartItemWidget extends StatelessWidget {
-  const CartItemWidget({Key? key, required this.title, required this.subTitle, this.style}) : super(key: key);
+  const CartItemWidget({super.key, required this.title, required this.subTitle, this.style});
 
   final String title;
   final String subTitle;
