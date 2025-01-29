@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "227834706852",
+    "project_id": "talez-2f54d",
+    "storage_bucket": "talez-2f54d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:227834706852:android:db8c4c74557303402a1f31",
+        "android_client_info": {
+          "package_name": "com.talez.customer"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJsiIjeU3t9GFnOp4wTm49TiKUoHW9N3M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:227834706852:android:8398ec7e06701a632a1f31",
+        "android_client_info": {
+          "package_name": "com.talez.deliveryman"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJsiIjeU3t9GFnOp4wTm49TiKUoHW9N3M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
