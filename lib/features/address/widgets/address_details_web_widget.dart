@@ -81,7 +81,7 @@ class AddressDetailsWebWidget extends StatelessWidget {
 
               return CustomTextFieldWidget(
                 countryDialCode: addressProvider.countryCode,
-                onCountryChanged: (CountryCode value) => addressProvider.setCountryCode(value.dialCode ?? '', isUpdate: true) ,
+                onCountryChanged: (CountryCode value) => addressProvider.setCountryCode(value.dialCode ?? '+91', isUpdate: true) ,
                 isRequired: true,
                 title: getTranslated('phone_number', context),
                 hintText: getTranslated('enter_contact_person_number', context),

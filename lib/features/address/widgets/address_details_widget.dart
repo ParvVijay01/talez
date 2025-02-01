@@ -202,7 +202,7 @@ class AddressDetailsWidget extends StatelessWidget {
               streetNumberController: streetNumberController,
               houseNumberController: houseNumberController,
               floorNumberController: florNumberController,
-              countryCode: addressProvider.countryCode ?? '',
+              countryCode: addressProvider.countryCode ?? '+91',
             ),
           )
         ],

@@ -30,31 +30,34 @@ class _SplashScreenState extends State<SplashScreen> {
   late StreamSubscription<List<ConnectivityResult>> _onConnectivityChanged;
   NotificationBody? notificationBody;
 
-
-
   @override
   void initState() {
     super.initState();
     triggerFirebaseNotification();
 
     bool firstTime = true;
-    _onConnectivityChanged = Connectivity().onConnectivityChanged.listen((result) {
-      if(!firstTime) {
-        bool isNotConnected = result.contains(ConnectivityResult.mobile) || result.contains(ConnectivityResult.wifi);
-        isNotConnected ? const SizedBox() : _globalKey.currentState!.hideCurrentSnackBar();
+    _onConnectivityChanged =
+        Connectivity().onConnectivityChanged.listen((result) {
+      if (!firstTime) {
+        bool isNotConnected = result.contains(ConnectivityResult.mobile) ||
+            result.contains(ConnectivityResult.wifi);
+        isNotConnected
+            ? const SizedBox()
+            : _globalKey.currentState!.hideCurrentSnackBar();
         _globalKey.currentState!.showSnackBar(SnackBar(
           backgroundColor: isNotConnected ? Colors.red : Colors.green,
           duration: Duration(seconds: isNotConnected ? 6000 : 3),
           content: Text(
-            isNotConnected ? getTranslated('no_connection', _globalKey.currentContext!): getTranslated('connected', _globalKey.currentContext!),
+            isNotConnected
+                ? getTranslated('no_connection', _globalKey.currentContext!)
+                : getTranslated('connected', _globalKey.currentContext!),
             textAlign: TextAlign.center,
           ),
         ));
 
-        if(!isNotConnected) {
+        if (!isNotConnected) {
           _routeToPage();
         }
-
       }
 
       firstTime = false;
@@ -64,17 +67,19 @@ class _SplashScreenState extends State<SplashScreen> {
 
     Provider.of<CartProvider>(context, listen: false).getCartData();
     _routeToPage();
-    Provider.of<LanguageProvider>(context, listen: false).initializeAllLanguages(context);
-
+    Provider.of<LanguageProvider>(context, listen: false)
+        .initializeAllLanguages(context);
   }
 
   triggerFirebaseNotification() async {
     try {
-      final RemoteMessage? remoteMessage = await FirebaseMessaging.instance.getInitialMessage();
+      final RemoteMessage? remoteMessage =
+          await FirebaseMessaging.instance.getInitialMessage();
       if (remoteMessage != null) {
-        notificationBody = NotificationHelper.convertNotification(remoteMessage.data);
+        notificationBody =
+            NotificationHelper.convertNotification(remoteMessage.data);
       }
-    }catch(e) {
+    } catch (e) {
       if (kDebugMode) {
         print(e);
       }
@@ -88,7 +93,6 @@ class _SplashScreenState extends State<SplashScreen> {
     _onConnectivityChanged.cancel();
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -98,8 +102,11 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Image.asset(Images.logo, width: 170,),
-            Text(AppConstants.appName, style: rubikBold.copyWith(fontSize: 30, color: Colors.white)),
+            Image.asset(
+              Images.logo,
+              width: 170,
+            ),
+            // Text(AppConstants.appName, style: rubikBold.copyWith(fontSize: 30, color: Colors.white)),
           ],
         ),
       ),
@@ -107,64 +114,110 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   void _routeToPage() {
-
     final SplashProvider splashProvider = context.read<SplashProvider>();
 
-    splashProvider.initConfig().then((bool isSuccess) async{
+    splashProvider.initConfig().then((bool isSuccess) async {
       if (isSuccess) {
+        try {
+          await splashProvider.getDeliveryInfo();
 
-        await splashProvider.getDeliveryInfo();
-
-        Timer(const Duration(seconds: 1), () async {
-          double minimumVersion = 0.0;
-          if(Platform.isAndroid) {
-            if(Provider.of<SplashProvider>(context, listen: false).configModel!.playStoreConfig!.minVersion!=null){
-              minimumVersion = Provider.of<SplashProvider>(context, listen: false).configModel!.playStoreConfig!.minVersion?? 6.0;
-
-            }
-          }else if(Platform.isIOS) {
-            if(Provider.of<SplashProvider>(context, listen: false).configModel!.appStoreConfig!.minVersion!=null){
-              minimumVersion = Provider.of<SplashProvider>(context, listen: false).configModel!.appStoreConfig!.minVersion?? 6.0;
-            }
-          }
-
-          if(AppConstants.appVersion < minimumVersion && !ResponsiveHelper.isWeb()) {
-            RouteHelper.getUpdateRoute(context, action: RouteAction.pushNamedAndRemoveUntil);
-
-          } else if (notificationBody != null){
-            notificationRoute();
-          } else{
-
-            if (Provider.of<AuthProvider>(context, listen: false).isLoggedIn()) {
-              Provider.of<AuthProvider>(context, listen: false).updateToken();
-              RouteHelper.getMainRoute(context, action: RouteAction.pushNamedAndRemoveUntil);
-
-            } else {
-              if(Provider.of<SplashProvider>(context, listen: false).showLang()) {
-                ResponsiveHelper.isMobile(context) ? RouteHelper.getLanguageRoute(context, 'splash', action: RouteAction.pushNamedAndRemoveUntil) : RouteHelper.getMainRoute(context, action: RouteAction.pushNamedAndRemoveUntil);
-
-              }else {
-                RouteHelper.getMainRoute(context, action: RouteAction.pushNamedAndRemoveUntil);
-
+          Timer(const Duration(seconds: 1), () async {
+            double minimumVersion = 0.0;
+            if (Platform.isAndroid) {
+              if (Provider.of<SplashProvider>(context, listen: false)
+                      .configModel!
+                      .playStoreConfig!
+                      .minVersion !=
+                  null) {
+                minimumVersion =
+                    Provider.of<SplashProvider>(context, listen: false)
+                            .configModel!
+                            .playStoreConfig!
+                            .minVersion ??
+                        6.0;
+              }
+            } else if (Platform.isIOS) {
+              if (Provider.of<SplashProvider>(context, listen: false)
+                      .configModel!
+                      .appStoreConfig!
+                      .minVersion !=
+                  null) {
+                minimumVersion =
+                    Provider.of<SplashProvider>(context, listen: false)
+                            .configModel!
+                            .appStoreConfig!
+                            .minVersion ??
+                        6.0;
               }
             }
-          }
-        });
+
+            if (AppConstants.appVersion < minimumVersion &&
+                !ResponsiveHelper.isWeb()) {
+              if (mounted) {
+                RouteHelper.getUpdateRoute(context,
+                    action: RouteAction.pushNamedAndRemoveUntil);
+              }
+            } else if (notificationBody != null) {
+              notificationRoute();
+            } else {
+              if (Provider.of<AuthProvider>(context, listen: false)
+                  .isLoggedIn()) {
+                Provider.of<AuthProvider>(context, listen: false).updateToken();
+                if (mounted) {
+                  RouteHelper.getMainRoute(context,
+                      action: RouteAction.pushNamedAndRemoveUntil);
+                }
+              } else {
+                if (Provider.of<SplashProvider>(context, listen: false)
+                    .showLang()) {
+                  if (ResponsiveHelper.isMobile(context)) {
+                    if (mounted) {
+                      RouteHelper.getLanguageRoute(context, 'splash',
+                          action: RouteAction.pushNamedAndRemoveUntil);
+                    }
+                  } else {
+                    if (mounted) {
+                      RouteHelper.getMainRoute(context,
+                          action: RouteAction.pushNamedAndRemoveUntil);
+                    }
+                  }
+                } else {
+                  if (mounted) {
+                    RouteHelper.getMainRoute(context,
+                        action: RouteAction.pushNamedAndRemoveUntil);
+                  }
+                }
+              }
+            }
+          });
+        } catch (e) {
+          // Handle errors during async operations
+          print('Error during _routeToPage: $e');
+          // You can show an error message or handle the failure gracefully here
+        }
       }
+    }).catchError((e) {
+      // Handle errors from initConfig itself
+      print('Error in initConfig: $e');
     });
   }
 
-  notificationRoute(){
-    if(notificationBody?.type == "message"){
-      RouteHelper.getChatRoute(context, orderId: notificationBody?.orderId, userName: notificationBody?.userName, profileImage: notificationBody?.userImage, action: RouteAction.pushNamedAndRemoveUntil);
-    }else if(notificationBody?.type == "order"){
-      RouteHelper.getOrderDetailsRoute(context, notificationBody?.orderId, null, action: RouteAction.pushNamedAndRemoveUntil);
-    }
-    else if(notificationBody?.type == "general"){
-      RouteHelper.getNotificationRoute(context, action: RouteAction.pushNamedAndRemoveUntil);
-    }else{
-      RouteHelper.getMainRoute(context, action: RouteAction.pushNamedAndRemoveUntil);
+  notificationRoute() {
+    if (notificationBody?.type == "message") {
+      RouteHelper.getChatRoute(context,
+          orderId: notificationBody?.orderId,
+          userName: notificationBody?.userName,
+          profileImage: notificationBody?.userImage,
+          action: RouteAction.pushNamedAndRemoveUntil);
+    } else if (notificationBody?.type == "order") {
+      RouteHelper.getOrderDetailsRoute(context, notificationBody?.orderId, null,
+          action: RouteAction.pushNamedAndRemoveUntil);
+    } else if (notificationBody?.type == "general") {
+      RouteHelper.getNotificationRoute(context,
+          action: RouteAction.pushNamedAndRemoveUntil);
+    } else {
+      RouteHelper.getMainRoute(context,
+          action: RouteAction.pushNamedAndRemoveUntil);
     }
   }
-
 }
