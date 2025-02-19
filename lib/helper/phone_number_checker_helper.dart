@@ -2,23 +2,22 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:phone_numbers_parser/phone_numbers_parser.dart';
 
-
-class PhoneNumberCheckerHelper{
-
+class PhoneNumberCheckerHelper {
   static RegExp phoneNumberExp = RegExp(r'^-?[0-9]+$');
-  static RegExp wordsAndSpecialCharacters = RegExp(r'[A-Za-z!@#$%^&*(),.?":{}|<>_\-+=\[\]\\\s]');
+  static RegExp wordsAndSpecialCharacters =
+      RegExp(r'[A-Za-z!@#$%^&*(),.?":{}|<>_\-+=\[\]\\\s]');
 
-  static bool isValidPhone (String phone){
+  static bool isValidPhone(String phone) {
     return phoneNumberExp.hasMatch(phone);
   }
 
-  static String? getPhoneNumber(String phoneNumberWithCountryCode, String countryCode){
+  static String? getPhoneNumber(
+      String phoneNumberWithCountryCode, String countryCode) {
     String phoneNumber = phoneNumberWithCountryCode.split(countryCode).last;
     return phoneNumber;
   }
 
-
-  static bool isPhoneValidWithCountryCode (String numberWithCountryCode) {
+  static bool isPhoneValidWithCountryCode(String numberWithCountryCode) {
     log("Phone number that will be parsed : $numberWithCountryCode");
     bool isValid = false;
     try {
@@ -31,17 +30,15 @@ class PhoneNumberCheckerHelper{
     }
   }
 
-
-  static String? getCountryCode (String? number) {
+  static String? getCountryCode(String? number) {
     String? countryCode = '';
-    try{
+    try {
       PhoneNumber phoneNumber = PhoneNumber.parse(number ?? '');
       countryCode = phoneNumber.countryCode;
-    }catch(error){
+    } catch (error) {
       debugPrint('country error: $error');
     }
 
     return '+${countryCode?.replaceAll('+', '')}';
   }
-
 }
