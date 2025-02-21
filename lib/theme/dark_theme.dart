@@ -10,7 +10,8 @@ ThemeData dark = ThemeData(
   hintColor: const Color(0xFFE7F6F8),
   focusColor: const Color(0xFFC3CAD9),
   shadowColor: Colors.black.withOpacity(0.4),
-  popupMenuTheme: const PopupMenuThemeData(color: Color(0xFF29292D), surfaceTintColor: Color(0xFF29292D)),
+  popupMenuTheme: const PopupMenuThemeData(
+      color: Color(0xFF29292D), surfaceTintColor: Color(0xFF29292D)),
   dialogTheme: const DialogTheme(surfaceTintColor: Colors.white10),
   colorScheme: ColorScheme(
     brightness: Brightness.dark,
@@ -21,8 +22,7 @@ ThemeData dark = ThemeData(
     error: Colors.redAccent,
     onError: Colors.redAccent,
     surface: Colors.white10,
-    onSurface:  Colors.white70,
+    onSurface: Colors.white70,
     shadow: Colors.black.withOpacity(0.4),
   ),
-
 );
