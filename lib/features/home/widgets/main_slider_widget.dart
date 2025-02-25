@@ -100,28 +100,28 @@ class _MainSliderWidgetState extends State<MainSliderWidget> {
             ),
           ),
 
-        if(widget.bannerType == BannerType.primary) Positioned(
-          right: 20, bottom: 100, top: 100,
-          child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+        // if(widget.bannerType == BannerType.primary) Positioned(
+        //   right: 20, bottom: 100, top: 100,
+        //   child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
 
-            Text('${currentIndex + 1}/${widget.bannerList!.length}', style: rubikRegular.copyWith(color: Theme.of(context).cardColor)),
-            const SizedBox(width: Dimensions.paddingSizeExtraSmall),
+        //     Text('${currentIndex + 1}/${widget.bannerList!.length}', style: rubikRegular.copyWith(color: Theme.of(context).cardColor)),
+        //     const SizedBox(width: Dimensions.paddingSizeExtraSmall),
 
-            RotatedBox(quarterTurns: 3, child: SizedBox(
-              height: 5, width: 200,
-              child: ClipRRect(
-                borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(Dimensions.radiusSizeDefault), topLeft: Radius.circular(Dimensions.radiusSizeDefault)),
-                child: LinearProgressIndicator(
-                  minHeight: 5,
-                  value: (((currentIndex + 1) * 100) / widget.bannerList!.length / 100),
-                  valueColor: AlwaysStoppedAnimation<Color>(Theme.of(context).colorScheme.error.withOpacity(0.8)),
-                  backgroundColor: Theme.of(context).cardColor,
-                ),
-              ),
-            )),
+        //     RotatedBox(quarterTurns: 3, child: SizedBox(
+        //       height: 5, width: 200,
+        //       child: ClipRRect(
+        //         borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(Dimensions.radiusSizeDefault), topLeft: Radius.circular(Dimensions.radiusSizeDefault)),
+        //         child: LinearProgressIndicator(
+        //           minHeight: 5,
+        //           value: (((currentIndex + 1) * 100) / widget.bannerList!.length / 100),
+        //           valueColor: AlwaysStoppedAnimation<Color>(Theme.of(context).colorScheme.error.withOpacity(0.8)),
+        //           backgroundColor: Theme.of(context).cardColor,
+        //         ),
+        //       ),
+        //     )),
 
-          ]),
-        ),
+        //   ]),
+        // ),
       ]),
     ) : const SizedBox();
   }
