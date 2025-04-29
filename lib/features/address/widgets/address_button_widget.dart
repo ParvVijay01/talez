@@ -26,6 +26,8 @@ class AddressButtonWidget extends StatelessWidget {
   final TextEditingController streetNumberController;
   final TextEditingController houseNumberController;
   final TextEditingController floorNumberController;
+  final TextEditingController pincodeController;
+  final TextEditingController landMarkController;
   final AddressModel? address;
   final String location;
   final String countryCode;
@@ -39,6 +41,8 @@ class AddressButtonWidget extends StatelessWidget {
     required this.streetNumberController,
     required this.floorNumberController,
     required this.houseNumberController,
+    required this.pincodeController,
+    required this.landMarkController,
     required this.address,
     required this.location,
     required this.countryCode
@@ -155,6 +159,8 @@ class AddressButtonWidget extends StatelessWidget {
           floorNumber: floorNumberController.text,
           houseNumber: houseNumberController.text,
           streetNumber: streetNumberController.text,
+          pincode: pincodeController.text,
+          landmark: landMarkController.text,
         );
 
         print('-------(ADDRESS IS )--------${addressModel.toJson().toString()}');

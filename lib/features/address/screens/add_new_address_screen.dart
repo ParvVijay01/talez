@@ -68,6 +68,8 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
       Provider.of<LocationProvider>(context, listen: false).setAddress =
           widget.address?.address;
       _locationTextController.text = widget.address!.address!;
+      _pincodeController.text = widget.address!.pincode!;
+      landMark.text = widget.address!.landmark!;
     }
   }
 
@@ -209,6 +211,8 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
             houseNumberController: _houseNumberController,
             floorNumberController: _florNumberController,
             countryCode: addressProvider.countryCode ?? '+91',
+            pincodeController: _pincodeController,
+            landMarkController: landMark,
           ),
       ]),
     );

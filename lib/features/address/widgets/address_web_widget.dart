@@ -155,6 +155,8 @@ class _AddressWebWidgetState extends State<AddressWebWidget> {
                       houseNumberController: widget.houseNumberController,
                       floorNumberController: widget.floorNumberController,
                       countryCode: addressProvider.countryCode ?? '+91',
+                      pincodeController: widget.pincodeController,
+                      landMarkController: widget.landMarkController,
                     )),
 
                   ]),
@@ -183,6 +185,8 @@ class _AddressWebWidgetState extends State<AddressWebWidget> {
               houseNumberController: widget.houseNumberController,
               floorNumberController: widget.floorNumberController,
               countryCode: addressProvider.countryCode ?? '+91',
+              pincodeController: widget.pincodeController,
+              landMarkController: widget.landMarkController,
             )),
 
             Expanded(child: Container()),

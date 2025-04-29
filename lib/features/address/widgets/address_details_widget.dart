@@ -244,6 +244,8 @@ class AddressDetailsWidget extends StatelessWidget {
               houseNumberController: houseNumberController,
               floorNumberController: florNumberController,
               countryCode: addressProvider.countryCode ?? '+91',
+              pincodeController: pincodeController,
+              landMarkController: landmark,
             ),
           )
         ],
