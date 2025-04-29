@@ -491,5 +491,7 @@
   "do_you_want_to_cancel_payment": "Do you want to cancel payment?",
   "proceed": "Proceed",
   "no_worries_registered_information_receive_otp": "No worries! Use your registered information to receive an OTP and reset your password.",
-  "enter_email_phone": "Please enter email or phone"
+  "enter_email_phone": "Please enter email or phone",
+  "pincode": "Pincode",
+  "000000": "Ex: 000000"
 }

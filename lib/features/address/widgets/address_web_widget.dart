@@ -23,9 +23,13 @@ class AddressWebWidget extends StatefulWidget {
   final TextEditingController streetNumberController;
   final TextEditingController houseNumberController;
   final TextEditingController floorNumberController;
+  final TextEditingController pincodeController;
+  final TextEditingController landMarkController;
   final FocusNode stateNode;
   final FocusNode houseNode;
   final FocusNode floorNode;
+  final FocusNode pincodeNode;
+  final FocusNode landMarkNode;
   const AddressWebWidget({
     super.key,
     required this.contactPersonNameController,
@@ -42,6 +46,10 @@ class AddressWebWidget extends StatefulWidget {
     required this.houseNode,
     required this.floorNumberController,
     required this.floorNode,
+    required this.pincodeController,
+    required this.pincodeNode,
+    required this.landMarkController,
+    required this.landMarkNode
   });
 
   @override
@@ -93,6 +101,10 @@ class _AddressWebWidgetState extends State<AddressWebWidget> {
             stateNode: widget.stateNode,
             florNumberController: widget.floorNumberController,
             florNode: widget.floorNode,
+            pincodeController: widget.pincodeController,
+            pincodeNode: widget.pincodeNode,
+            landMark: widget.landMarkController,
+            ladmarkNode: widget.landMarkNode,
           )),
 
           if(configModel.googleMapStatus ?? false)...[

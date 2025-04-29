@@ -200,8 +200,9 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                     const SizedBox(height: Dimensions.paddingSizeDefault),
 
                     // for last name section
-
+                    
                     CustomTextFieldWidget(
+                      isRequired: false,
                       hintText: getTranslated('last_name', context),
                       prefixAssetUrl: Images.profile,
                       isShowBorder: true,
@@ -386,8 +387,8 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                             : () {
                                 String firstName =
                                     _firstNameController.text.trim();
-                                String lastName =
-                                    _lastNameController.text.trim();
+                                String lastName = _lastNameController.text
+                                    .trim(); // This can be empty
                                 String number = _countryDialCode! +
                                     _numberController.text.trim();
                                 String email = _emailController.text.trim();
@@ -400,10 +401,6 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                                   showCustomSnackBar(
                                       getTranslated(
                                           'enter_first_name', context),
-                                      context);
-                                } else if (lastName.isEmpty) {
-                                  showCustomSnackBar(
-                                      getTranslated('enter_last_name', context),
                                       context);
                                 } else if (_numberController.text.isEmpty) {
                                   showCustomSnackBar(
@@ -443,7 +440,9 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                                 } else {
                                   SignUpModel signUpModel = SignUpModel(
                                     fName: firstName,
-                                    lName: lastName,
+                                    lName: lastName.isEmpty
+                                        ? null
+                                        : lastName, // This can be empty
                                     email: email,
                                     password: password,
                                     phone: number,

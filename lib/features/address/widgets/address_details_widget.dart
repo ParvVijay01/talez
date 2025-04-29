@@ -16,6 +16,8 @@ import 'package:provider/provider.dart';
 class AddressDetailsWidget extends StatelessWidget {
   final TextEditingController contactPersonNameController;
   final TextEditingController contactPersonNumberController;
+  final TextEditingController pincodeController;
+  final TextEditingController landmark;
   final FocusNode addressNode;
   final FocusNode nameNode;
   final FocusNode numberNode;
@@ -29,11 +31,16 @@ class AddressDetailsWidget extends StatelessWidget {
   final FocusNode stateNode;
   final FocusNode houseNode;
   final FocusNode florNode;
+  final FocusNode pincodeNode;
+  final FocusNode landmarkNode;
+  final FocusNode contactPersonNameNode;
 
   const AddressDetailsWidget({
     super.key,
     required this.contactPersonNameController,
     required this.contactPersonNumberController,
+    required this.pincodeController,
+    required this.landmark,
     required this.addressNode, required this.nameNode,
     required this.numberNode,
     required this.isUpdateEnable,
@@ -46,6 +53,9 @@ class AddressDetailsWidget extends StatelessWidget {
     required this.houseNode,
     required this.florNumberController,
     required this.florNode,
+    required this.pincodeNode,
+    required this.landmarkNode,
+    required this.contactPersonNameNode,
   });
 
   @override
@@ -142,7 +152,7 @@ class AddressDetailsWidget extends StatelessWidget {
                 inputType: TextInputType.streetAddress,
                 inputAction: TextInputAction.next,
                 focusNode: florNode,
-                nextFocus: nameNode,
+                nextFocus: pincodeNode,
                 controller: florNumberController,
                 maxLength: 10,
               ),
@@ -150,7 +160,39 @@ class AddressDetailsWidget extends StatelessWidget {
 
           ],),
           const SizedBox(height: Dimensions.paddingSizeLarge),
-
+          // Pin code
+          Text(
+            getTranslated('pincode', context),
+            style: rubikMedium.copyWith(color: Theme.of(context).hintColor),
+          ),
+          const SizedBox(height: Dimensions.paddingSizeSmall),
+          CustomTextFieldWidget(
+            hintText: getTranslated('enter_pincode', context),
+            isShowBorder: true,
+            inputType: TextInputType.streetAddress,
+            controller: pincodeController,
+            focusNode: pincodeNode,
+            nextFocus: landmarkNode,
+            capitalization: TextCapitalization.words,
+          ),
+          const SizedBox(height: Dimensions.paddingSizeLarge),
+          // for Landmark
+          Text(
+            getTranslated('Landmark', context),
+            style: rubikMedium.copyWith(color: Theme.of(context).hintColor),
+          ),
+          const SizedBox(height: Dimensions.paddingSizeSmall),
+          CustomTextFieldWidget(
+            hintText: getTranslated('Landmark', context),
+            isShowBorder: true,
+            inputType: TextInputType.streetAddress,
+            controller: landmark,
+            focusNode: landmarkNode,
+            nextFocus: contactPersonNameNode,
+            inputAction: TextInputAction.next,
+            capitalization: TextCapitalization.words,
+          ),
+          const SizedBox(height: Dimensions.paddingSizeLarge),
           // for Contact Person Name
           Text(
             getTranslated('contact_person_name', context),
@@ -162,7 +204,6 @@ class AddressDetailsWidget extends StatelessWidget {
             isShowBorder: true,
             inputType: TextInputType.name,
             controller: contactPersonNameController,
-            focusNode: nameNode,
             nextFocus: numberNode,
             inputAction: TextInputAction.next,
             capitalization: TextCapitalization.words,

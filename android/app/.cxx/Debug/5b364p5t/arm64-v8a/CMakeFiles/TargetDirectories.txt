@@ -1,0 +1,2 @@
+C:/JeeVijay/talez/user-frontend/android/app/.cxx/Debug/5b364p5t/arm64-v8a/CMakeFiles/edit_cache.dir
+C:/JeeVijay/talez/user-frontend/android/app/.cxx/Debug/5b364p5t/arm64-v8a/CMakeFiles/rebuild_cache.dir

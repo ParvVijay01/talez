@@ -1,0 +1,2 @@
+C:/JeeVijay/talez/user-frontend/android/app/.cxx/RelWithDebInfo/734x2m6y/armeabi-v7a/CMakeFiles/edit_cache.dir
+C:/JeeVijay/talez/user-frontend/android/app/.cxx/RelWithDebInfo/734x2m6y/armeabi-v7a/CMakeFiles/rebuild_cache.dir

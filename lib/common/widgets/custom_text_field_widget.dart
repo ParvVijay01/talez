@@ -172,7 +172,6 @@ class _CustomTextFieldWidgetState extends State<CustomTextFieldWidget> {
             textCapitalization: widget.capitalization,
             enabled: widget.isEnabled,
             autofocus: false,
-            //onChanged: widget.isSearch ? widget.languageProvider.searchLanguage : null,
             obscureText: widget.isPassword ? _obscureText : false,
             inputFormatters: widget.inputType == TextInputType.phone
                 ? <TextInputFormatter>[
@@ -250,7 +249,6 @@ class _CustomTextFieldWidgetState extends State<CustomTextFieldWidget> {
                           child: Row(mainAxisSize: MainAxisSize.min, children: [
                             CodePickerWidget(
                               onChanged: (CountryCode countryCode) {
-                                // Update the country code when a user selects a country
                                 addressProvider.setCountryCode(
                                   countryCode.dialCode ?? '+91',
                                 );
@@ -266,7 +264,6 @@ class _CustomTextFieldWidgetState extends State<CustomTextFieldWidget> {
                                   size.height * 0.6),
                               dialogBackgroundColor:
                                   Theme.of(context).cardColor,
-                              //barrierColor: Get.isDarkMode?Colors.black.withOpacity(0.4):null,
                               textStyle: rubikRegular.copyWith(
                                   fontSize: Dimensions.fontSizeSmall,
                                   color: Theme.of(context)
@@ -279,7 +276,7 @@ class _CustomTextFieldWidgetState extends State<CustomTextFieldWidget> {
               prefixIconConstraints:
                   const BoxConstraints(minWidth: 23, maxHeight: 20),
               suffixIconConstraints: const BoxConstraints(
-                minWidth: 25, // Adjust these values to fit the design
+                minWidth: 25,
                 minHeight: 25,
                 maxWidth: 35,
                 maxHeight: 35,
@@ -346,7 +343,16 @@ class _CustomTextFieldWidgetState extends State<CustomTextFieldWidget> {
                 : widget.onSubmit != null
                     ? widget.onSubmit!(text)
                     : null,
-            validator: widget.onValidate,
+
+            /// ✅ Optional field logic
+            validator: widget.onValidate ??
+                (value) {
+                  if (widget.isRequired &&
+                      (value == null || value.trim().isEmpty)) {
+                    return 'This field is required';
+                  }
+                  return null;
+                },
           ),
         ),
       ],

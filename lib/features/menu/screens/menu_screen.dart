@@ -1,8 +1,10 @@
+import 'package:flutter_social_button/flutter_social_button.dart';
 import 'package:hexacom_user/common/models/config_model.dart';
 import 'package:hexacom_user/common/widgets/custom_alert_dialog_widget.dart';
 import 'package:hexacom_user/common/widgets/custom_app_bar_widget.dart';
 import 'package:hexacom_user/common/widgets/custom_image_widget.dart';
 import 'package:hexacom_user/common/widgets/language_select_widget.dart';
+import 'package:hexacom_user/common/widgets/social_media_launcher.dart';
 import 'package:hexacom_user/common/widgets/theme_switch_button_widget.dart';
 import 'package:hexacom_user/features/auth/providers/auth_provider.dart';
 import 'package:hexacom_user/features/language/widgets/language_select_button_widget.dart';
@@ -12,6 +14,7 @@ import 'package:hexacom_user/features/profile/providers/profile_provider.dart';
 import 'package:hexacom_user/features/splash/providers/splash_provider.dart';
 import 'package:hexacom_user/helper/responsive_helper.dart';
 import 'package:hexacom_user/localization/language_constrants.dart';
+import 'package:hexacom_user/provider/language_provider.dart';
 import 'package:hexacom_user/utill/app_constants.dart';
 import 'package:hexacom_user/utill/dimensions.dart';
 import 'package:hexacom_user/utill/images.dart';
@@ -200,87 +203,106 @@ class _MenuScreenState extends State<MenuScreen> {
                                         RouteHelper.getCouponRoute(context)),
                                 InkWell(
                                   onTap: () {
+                                    Provider.of<LanguageProvider>(context,
+                                            listen: false)
+                                        .initializeAllLanguages(context);
                                     showModalBottomSheet(
-                                        backgroundColor: Colors.transparent,
-                                        context: context,
-                                        builder: (ctx) => Container(
-                                              constraints: BoxConstraints(
-                                                maxHeight:
-                                                    MediaQuery.of(context)
-                                                            .size
-                                                            .height *
-                                                        0.7,
-                                              ),
-                                              padding: const EdgeInsets.all(
-                                                  Dimensions
-                                                      .paddingSizeDefault),
-                                              decoration: BoxDecoration(
-                                                color: Theme.of(context)
-                                                    .canvasColor,
-                                                borderRadius: ResponsiveHelper
-                                                        .isMobile(context)
+                                      backgroundColor: Colors.transparent,
+                                      isScrollControlled: true, // 🟢 Important!
+                                      context: context,
+                                      builder: (ctx) =>
+                                          DraggableScrollableSheet(
+                                        initialChildSize: 0.7,
+                                        minChildSize: 0.4,
+                                        maxChildSize: 0.95,
+                                        expand: false,
+                                        builder: (context, scrollController) =>
+                                            Container(
+                                          padding: const EdgeInsets.all(
+                                              Dimensions.paddingSizeDefault),
+                                          decoration: BoxDecoration(
+                                            color:
+                                                Theme.of(context).canvasColor,
+                                            borderRadius:
+                                                ResponsiveHelper.isMobile(
+                                                        context)
                                                     ? const BorderRadius.only(
                                                         topLeft:
                                                             Radius.circular(20),
                                                         topRight:
-                                                            Radius.circular(20))
+                                                            Radius.circular(20),
+                                                      )
                                                     : const BorderRadius.all(
                                                         Radius.circular(20)),
+                                          ),
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Center(
+                                                child: Container(
+                                                  height: 4,
+                                                  width: 40,
+                                                  margin: const EdgeInsets.only(
+                                                      bottom: 12),
+                                                  decoration: BoxDecoration(
+                                                    color: Theme.of(context)
+                                                        .dividerColor,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            25),
+                                                  ),
+                                                ),
                                               ),
-                                              child: Column(
-                                                mainAxisSize: MainAxisSize.min,
-                                                children: [
-                                                  Container(
-                                                      height: 4,
-                                                      width: 40,
-                                                      decoration: BoxDecoration(
-                                                        color: Theme.of(context)
-                                                            .dividerColor,
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(25),
-                                                      )),
-                                                  const SizedBox(
-                                                      height: Dimensions
-                                                          .paddingSizeDefault),
-                                                  Text(
-                                                      getTranslated(
-                                                          'select_language',
-                                                          context),
-                                                      style: rubikMedium),
-                                                  const SizedBox(
-                                                      height: Dimensions
-                                                          .paddingSizeExtraSmall),
-                                                  Text(
-                                                      getTranslated(
-                                                          'choose_the_language',
-                                                          context),
-                                                      style: rubikRegular.copyWith(
-                                                          fontSize: Dimensions
-                                                              .fontSizeSmall)),
-                                                  const SizedBox(
-                                                      height: Dimensions
-                                                          .paddingSizeExtraLarge),
-                                                  const Flexible(
-                                                      child: SingleChildScrollView(
-                                                          child:
-                                                              LanguageSelectWidget(
-                                                                  fromMenu:
-                                                                      true))),
-                                                  const SizedBox(
-                                                      height: Dimensions
-                                                          .paddingSizeDefault),
-                                                  const LanguageSelectButtonWidget(
-                                                      fromMenu: true),
-                                                ],
+                                              Text(
+                                                getTranslated(
+                                                    'select_language', context),
+                                                style: rubikMedium,
                                               ),
-                                            ));
+                                              const SizedBox(
+                                                  height: Dimensions
+                                                      .paddingSizeExtraSmall),
+                                              Text(
+                                                getTranslated(
+                                                    'choose_the_language',
+                                                    context),
+                                                style: rubikRegular.copyWith(
+                                                  fontSize:
+                                                      Dimensions.fontSizeSmall,
+                                                ),
+                                              ),
+                                              const SizedBox(
+                                                  height: Dimensions
+                                                      .paddingSizeLarge),
+
+                                              /// 🟣 Replace `Flexible` + `SingleChildScrollView` with Expanded + ListView
+                                              Expanded(
+                                                child: ListView(
+                                                  controller: scrollController,
+                                                  children: [
+                                                    LanguageSelectWidget(
+                                                        fromMenu: true),
+                                                  ],
+                                                ),
+                                              ),
+
+                                              const SizedBox(
+                                                  height: Dimensions
+                                                      .paddingSizeDefault),
+                                              const LanguageSelectButtonWidget(
+                                                  fromMenu: true),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    );
                                   },
                                   child: PortionWidget(
-                                      imageIcon: Images.language,
-                                      title: getTranslated('language', context),
-                                      hideDivider: true),
-                                ),
+                                    imageIcon: Images.language,
+                                    title: getTranslated('language', context),
+                                    hideDivider: true,
+                                  ),
+                                )
                               ]),
                             )
                           ]),
@@ -370,6 +392,69 @@ class _MenuScreenState extends State<MenuScreen> {
                                           .getCancellationPolicyRoute(context),
                                       hideDivider: true),
                               ]),
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Center(
+                                    child: IconButton(
+                                  onPressed: () => openSocialMedia(
+                                      "https://www.facebook.com/share/1EZxgL2L41/?mibextid=wwXIfr"),
+                                  icon: Icon(
+                                    FontAwesomeIcons.facebook,
+                                    size: 20,
+                                    color: Colors.blue,
+                                  ),
+                                )),
+                                Center(
+                                  child: IconButton(
+                                    onPressed: () => openSocialMedia(
+                                        "https://www.instagram.com/talez_chd?igsh=emhjaG5rcTU0OXFq&utm_source=qr"),
+                                    icon: ShaderMask(
+                                      shaderCallback: (Rect bounds) {
+                                        return LinearGradient(
+                                          colors: [
+                                            Color(0xFFFEDA75), // Yellow
+                                            Color(0xFFFA7E1E), // Orange
+                                            Color(0xFFD62976), // Pinkish Red
+                                            Color(0xFF962FBF), // Purple
+                                            Color(0xFF4F5BD5), // Deep Blue
+                                          ],
+                                          begin: Alignment.topLeft,
+                                          end: Alignment.bottomRight,
+                                        ).createShader(bounds);
+                                      },
+                                      child: Icon(
+                                        FontAwesomeIcons.instagram,
+                                        size: 20,
+                                        color: Colors
+                                            .white, // Keep white to allow gradient to show
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Center(
+                                    child: IconButton(
+                                  onPressed: () => openSocialMedia(
+                                      "https://youtube.com/@talezchd?si=RIH_EqKhVvTndsgA"),
+                                  icon: Icon(
+                                    FontAwesomeIcons.youtube,
+                                    size: 20,
+                                    color: Colors.red,
+                                  ),
+                                )),
+                                Center(
+                                    child: IconButton(
+                                  onPressed: () => openSocialMedia(
+                                      "https://snapchat.com/t/9JbNdhjS"),
+                                  icon: Icon(
+                                    FontAwesomeIcons.snapchat,
+                                    size: 20,
+                                    color:
+                                        const Color.fromARGB(255, 224, 202, 0),
+                                  ),
+                                )),
+                              ],
                             )
                           ]),
                       if (isLoggedIn)
@@ -454,7 +539,7 @@ class _MenuScreenState extends State<MenuScreen> {
                                     isLoggedIn
                                         ? getTranslated('logout', context)
                                         : getTranslated('sign_in', context),
-                                    style: rubikRegular)
+                                    style: rubikRegular),
                               ]),
                         ),
                       ),

@@ -1,3 +1,4 @@
+import 'package:flutter_social_button/flutter_social_button.dart';
 import 'package:hexacom_user/common/enums/footer_type_enum.dart';
 import 'package:hexacom_user/common/enums/product_filter_type_enum.dart';
 import 'package:hexacom_user/common/widgets/custom_app_bar_widget.dart';
@@ -5,6 +6,8 @@ import 'package:hexacom_user/common/widgets/custom_single_child_list_widget.dart
 import 'package:hexacom_user/common/widgets/footer_web_widget.dart';
 import 'package:hexacom_user/common/widgets/home_app_bar_widget.dart';
 import 'package:hexacom_user/common/widgets/product_filter_popup_widget.dart';
+import 'package:hexacom_user/common/widgets/socialIcons.dart';
+import 'package:hexacom_user/common/widgets/social_media_launcher.dart';
 import 'package:hexacom_user/common/widgets/title_widget.dart';
 import 'package:hexacom_user/features/auth/providers/auth_provider.dart';
 import 'package:hexacom_user/features/category/providers/category_provider.dart';
@@ -323,6 +326,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 ),
               ),
+              // Social Media Icons Row - only for mobile
+              if (!ResponsiveHelper.isDesktop(context))
+                SliverToBoxAdapter(child: SocialIconsWidget()),
 
               const FooterWebWidget(footerType: FooterType.sliver),
             ],

@@ -1,5 +1,7 @@
+import 'package:flutter_social_button/flutter_social_button.dart';
 import 'package:hexacom_user/common/enums/popup_menu_type_enum.dart';
 import 'package:hexacom_user/common/widgets/cart_count_widget.dart';
+import 'package:hexacom_user/common/widgets/social_media_launcher.dart';
 import 'package:hexacom_user/helper/cart_helper.dart';
 import 'package:hexacom_user/features/profile/providers/profile_provider.dart';
 import 'package:hexacom_user/provider/theme_provider.dart';
@@ -224,6 +226,63 @@ class _WebAppBarWidgetState extends State<WebAppBarWidget> {
                           ],
                         ),
                         Row(children: [
+                          Center(
+                              child: IconButton(
+                            onPressed: () => openSocialMedia(
+                                "https://www.facebook.com/share/1EZxgL2L41/?mibextid=wwXIfr"),
+                            icon: Icon(
+                              FontAwesomeIcons.facebook,
+                              size: 20,
+                              color: Colors.blue,
+                            ),
+                          )),
+                          Center(
+                            child: IconButton(
+                              onPressed: () => openSocialMedia(
+                                  "https://www.instagram.com/talez_chd?igsh=emhjaG5rcTU0OXFq&utm_source=qr"),
+                              icon: ShaderMask(
+                                shaderCallback: (Rect bounds) {
+                                  return LinearGradient(
+                                    colors: [
+                                      Color(0xFFFEDA75), // Yellow
+                                      Color(0xFFFA7E1E), // Orange
+                                      Color(0xFFD62976), // Pinkish Red
+                                      Color(0xFF962FBF), // Purple
+                                      Color(0xFF4F5BD5), // Deep Blue
+                                    ],
+                                    begin: Alignment.topLeft,
+                                    end: Alignment.bottomRight,
+                                  ).createShader(bounds);
+                                },
+                                child: Icon(
+                                  FontAwesomeIcons.instagram,
+                                  size: 20,
+                                  color: Colors
+                                      .white, // Keep white to allow gradient to show
+                                ),
+                              ),
+                            ),
+                          ),
+                          Center(
+                              child: IconButton(
+                            onPressed: () => openSocialMedia(
+                                "https://youtube.com/@talezchd?si=RIH_EqKhVvTndsgA"),
+                            icon: Icon(
+                              FontAwesomeIcons.youtube,
+                              size: 20,
+                              color: Colors.red,
+                            ),
+                          )),
+                          Center(
+                              child: IconButton(
+                            onPressed: () => openSocialMedia(
+                                "https://snapchat.com/t/9JbNdhjS"),
+                            icon: Icon(
+                              FontAwesomeIcons.snapchat,
+                              size: 20,
+                              color: const Color.fromARGB(255, 224, 202, 0),
+                            ),
+                          )),
                           TextHoverWidget(
                               builder: (isHover) => Container(
                                     width: 400,

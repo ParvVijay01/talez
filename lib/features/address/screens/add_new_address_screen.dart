@@ -44,16 +44,20 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
   final TextEditingController _contactPersonNumberController =
       TextEditingController();
   final TextEditingController _locationTextController = TextEditingController();
+  final TextEditingController _pincodeController = TextEditingController();
   final TextEditingController _streetNumberController = TextEditingController();
   final TextEditingController _houseNumberController = TextEditingController();
   final TextEditingController _florNumberController = TextEditingController();
-
+  final TextEditingController landMark = TextEditingController();
   final FocusNode _addressNode = FocusNode();
   final FocusNode _nameNode = FocusNode();
   final FocusNode _numberNode = FocusNode();
   final FocusNode _stateNode = FocusNode();
   final FocusNode _houseNode = FocusNode();
   final FocusNode _floorNode = FocusNode();
+  final FocusNode _pincodeNode = FocusNode();
+  final FocusNode landmarkNode = FocusNode();
+  final FocusNode contactPersonNode = FocusNode();
 
   @override
   void initState() {
@@ -142,10 +146,8 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
                         // for label us
                         if (!ResponsiveHelper.isDesktop(context))
                           AddressDetailsWidget(
-                            contactPersonNameController:
-                                _contactPersonNameController,
-                            contactPersonNumberController:
-                                _contactPersonNumberController,
+                            contactPersonNameController: _contactPersonNameController,
+                            contactPersonNumberController: _contactPersonNumberController,
                             addressNode: _addressNode,
                             nameNode: _nameNode,
                             numberNode: _numberNode,
@@ -159,6 +161,11 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
                             stateNode: _stateNode,
                             florNumberController: _florNumberController,
                             florNode: _floorNode,
+                            pincodeController: _pincodeController,
+                            landmark: landMark,
+                            pincodeNode: _pincodeNode,
+                            landmarkNode: landmarkNode,
+                            contactPersonNameNode: contactPersonNode,
                           ),
 
                         if (ResponsiveHelper.isDesktop(context))
@@ -180,6 +187,10 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
                             stateNode: _stateNode,
                             floorNumberController: _florNumberController,
                             floorNode: _floorNode,
+                            pincodeController: _pincodeController,
+                            pincodeNode: _pincodeNode,
+                            landMarkController: landMark,
+                            landMarkNode: landmarkNode,
                           ),
                       ],
                     ))),
@@ -299,10 +310,10 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
                       .dialCode) ??
               '',
           isUpdate: true);
-      _contactPersonNumberController.text =
-          PhoneNumberCheckerHelper.getPhoneNumber(
-                  userModel?.phone ?? '', addressProvider.countryCode ?? '+91') ??
-              '';
+      _contactPersonNumberController
+          .text = PhoneNumberCheckerHelper.getPhoneNumber(
+              userModel?.phone ?? '', addressProvider.countryCode ?? '+91') ??
+          '';
       log("country code ===> ${addressProvider.countryCode}");
       _streetNumberController.text = widget.address?.streetNumber ?? '';
       _houseNumberController.text = widget.address?.houseNumber ?? '';
