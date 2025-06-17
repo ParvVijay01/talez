@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:hexacom_user/helper/responsive_helper.dart';
 import 'package:hexacom_user/localization/language_constrants.dart';
 import 'package:hexacom_user/main.dart';
@@ -20,53 +19,36 @@ class LocationPermissionDialogWidget extends StatelessWidget {
         child: SizedBox(
           width: 300,
           child: Column(mainAxisSize: MainAxisSize.min, children: [
-            Icon(Icons.add_location_alt_rounded,
-                color: Theme.of(context).primaryColor, size: 100),
+
+            Icon(Icons.add_location_alt_rounded, color: Theme.of(context).primaryColor, size: 100),
             const SizedBox(height: Dimensions.paddingSizeLarge),
+
             Text(
-              getTranslated('you_denied_location_permission', context),
-              textAlign: TextAlign.justify,
+              getTranslated('you_denied_location_permission', context), textAlign: TextAlign.justify,
               style: rubikMedium.copyWith(fontSize: Dimensions.fontSizeLarge),
             ),
             const SizedBox(height: Dimensions.paddingSizeLarge),
+
             Row(children: [
-              // Custom styled "No" button using TextButton for full control
               Expanded(
                 child: TextButton(
                   style: TextButton.styleFrom(
-                    backgroundColor: Colors.white,
-                    side: BorderSide(
-                        color: Theme.of(context).primaryColor, width: 2),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30)),
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10), side: BorderSide(width: 2, color: Theme.of(context).primaryColor)),
                     minimumSize: const Size(1, 50),
                   ),
+                  child: Text(getTranslated('no', context)),
                   onPressed: () => Navigator.pop(context),
-                  child: Text(
-                    getTranslated('no', context),
-                    style: TextStyle(color: Theme.of(context).primaryColor),
-                  ),
                 ),
               ),
               const SizedBox(width: Dimensions.paddingSizeSmall),
-              // Keep using your CustomButtonWidget for "Yes"
-              Expanded(
-                child: CustomButtonWidget(
-                  btnTxt: getTranslated('yes', context),
-                  onTap: () async {
-                    if (kIsWeb) {
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                        content: Text(
-                            "Please enable location permission in your browser settings."),
-                      ));
-                    } else if (ResponsiveHelper.isMobilePhone()) {
-                      await Geolocator.openAppSettings();
-                    }
-                    Navigator.pop(context);
-                  },
-                ),
-              ),
-            ])
+              Expanded(child: CustomButtonWidget(btnTxt: getTranslated('yes', context), onTap: () async {
+               if(ResponsiveHelper.isMobilePhone()) {
+                 await Geolocator.openAppSettings();
+               }
+                Navigator.pop(Get.context!);
+              })),
+            ]),
+
           ]),
         ),
       ),
