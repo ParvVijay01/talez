@@ -246,7 +246,7 @@
   "no_description_found": "No description found",
   "no_review_found": "No review found",
   "you_have_to_allow": "You have to allow location permission to add a new address",
-  "you_denied_location_permission": "You denied location permission for forever. You have to allow location permission to add a new address.",
+  "you_denied_location_permission": "You’ve permanently denied location access. To add a new address, please enable location permission in your settings.",
   "out_of_stock": "Out of stock",
   "settings": "Settings",
   "privacy_policy": "Privacy Policy",
